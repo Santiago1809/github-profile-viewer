@@ -31,5 +31,14 @@ export class GithubProfileDto {
   blog: string | null;
 
   @Expose()
+  company: string | null;
+
+  @Expose()
+  email: string | null;
+
+  @Expose()
+  hireable: boolean | null;
+
+  @Expose()
   html_url: string;
 }

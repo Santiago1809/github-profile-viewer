@@ -15,6 +15,9 @@ describe('LruCacheService', () => {
     following: 3,
     location: 'Test City',
     blog: 'https://example.com',
+    company: null,
+    email: null,
+    hireable: null,
     html_url: 'https://github.com/testuser',
   };
 

@@ -21,6 +21,9 @@ describe('GithubService', () => {
     following: 9,
     location: 'San Francisco',
     blog: null,
+    company: '@github',
+    email: null,
+    hireable: null,
     html_url: 'https://github.com/octocat',
   };
 
@@ -64,10 +67,12 @@ describe('GithubService', () => {
       following: 9,
       location: 'San Francisco',
       blog: '',
+      company: '@github',
+      email: null,
+      hireable: true,
       html_url: 'https://github.com/octocat',
       node_id: 'MDQ6VXNlcjU4MzIzMQ==',
       gravatar_id: '',
-      company: '@github',
     };
 
     it('should fetch and return a transformed GithubProfileDto', async () => {
@@ -112,7 +117,7 @@ describe('GithubService', () => {
 
       expect(result).not.toHaveProperty('node_id');
       expect(result).not.toHaveProperty('gravatar_id');
-      expect(result).not.toHaveProperty('company');
+      expect(result.company).toBe('@github');
     });
 
     it('should throw NotFoundException when GitHub returns 404', async () => {
@@ -188,6 +193,9 @@ describe('GithubService', () => {
         following: 9,
         location: 'San Francisco',
         blog: '',
+        company: null,
+        email: null,
+        hireable: null,
         html_url: 'https://github.com/octocat',
       };
       mockClient.get.mockResolvedValue({ data: mockApiResponse });

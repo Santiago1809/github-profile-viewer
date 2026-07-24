@@ -39,6 +39,9 @@ describe('GithubController', () => {
       following: 9,
       location: null,
       blog: null,
+      company: null,
+      email: null,
+      hireable: null,
       html_url: 'https://github.com/octocat',
     };
 

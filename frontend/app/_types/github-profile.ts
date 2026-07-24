@@ -8,5 +8,8 @@ export interface GithubProfile {
   following: number;
   location: string | null;
   blog: string | null;
+  company: string | null;
+  email: string | null;
+  hireable: boolean | null;
   html_url: string;
 }

@@ -71,6 +71,44 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
             </dd>
           </div>
         )}
+        {profile.company && (
+          <div className="flex items-center gap-2 font-mono text-xs tracking-[0.05em] text-muted">
+            <dt className="sr-only">Company</dt>
+            <dd>
+              <samp>
+                <span className="text-accent">&gt;&gt;&gt;</span> {profile.company}
+              </samp>
+            </dd>
+          </div>
+        )}
+        {profile.email && (
+          <div className="flex items-center gap-2 font-mono text-xs tracking-[0.05em] text-muted">
+            <dt className="sr-only">Email</dt>
+            <dd>
+              <samp>
+                <span className="text-accent">&gt;&gt;&gt;</span>{" "}
+                <a
+                  href={`mailto:${profile.email}`}
+                  className="text-foreground hover:text-accent underline underline-offset-2 decoration-border-custom transition-colors"
+                >
+                  {profile.email}
+                </a>
+              </samp>
+            </dd>
+          </div>
+        )}
+        {profile.hireable !== null && (
+          <div className="flex items-center gap-2 font-mono text-xs tracking-[0.05em]">
+            <dt className="sr-only">Hireable</dt>
+            <dd>
+              <samp>
+                <span className={profile.hireable ? "text-terminal-green" : "text-muted"}>
+                  [{profile.hireable ? " AVAILABLE FOR HIRE " : " NOT AVAILABLE "}]
+                </span>
+              </samp>
+            </dd>
+          </div>
+        )}
         {blogUrl && (
           <div className="flex items-center gap-2 font-mono text-xs tracking-[0.05em] text-muted">
             <dt className="sr-only">Blog</dt>
