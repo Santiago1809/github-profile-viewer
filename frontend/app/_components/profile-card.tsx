@@ -60,33 +60,34 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
       </div>
 
       {/* Metadata rows */}
-      <dl className="mx-4 mb-4 space-y-2">
+      <dl className="mx-4 mb-4 space-y-3">
         {profile.location && (
-          <div className="flex items-center gap-2 font-mono text-xs tracking-[0.05em] text-muted">
-            <dt className="sr-only">Location</dt>
-            <dd>
-              <samp>
-                <span className="text-accent">&gt;&gt;&gt;</span> {profile.location}
-              </samp>
+          <div className="font-mono text-xs tracking-[0.05em]">
+            <dt className="block text-[10px] tracking-[0.1em] text-muted uppercase mb-1">
+              <samp>[ LOCATION ]</samp>
+            </dt>
+            <dd className="text-foreground">
+              <samp>{profile.location}</samp>
             </dd>
           </div>
         )}
         {profile.company && (
-          <div className="flex items-center gap-2 font-mono text-xs tracking-[0.05em] text-muted">
-            <dt className="sr-only">Company</dt>
-            <dd>
-              <samp>
-                <span className="text-accent">&gt;&gt;&gt;</span> {profile.company}
-              </samp>
+          <div className="font-mono text-xs tracking-[0.05em]">
+            <dt className="block text-[10px] tracking-[0.1em] text-muted uppercase mb-1">
+              <samp>[ COMPANY ]</samp>
+            </dt>
+            <dd className="text-foreground">
+              <samp>{profile.company}</samp>
             </dd>
           </div>
         )}
         {profile.email && (
-          <div className="flex items-center gap-2 font-mono text-xs tracking-[0.05em] text-muted">
-            <dt className="sr-only">Email</dt>
+          <div className="font-mono text-xs tracking-[0.05em]">
+            <dt className="block text-[10px] tracking-[0.1em] text-muted uppercase mb-1">
+              <samp>[ EMAIL ]</samp>
+            </dt>
             <dd>
               <samp>
-                <span className="text-accent">&gt;&gt;&gt;</span>{" "}
                 <a
                   href={`mailto:${profile.email}`}
                   className="text-foreground hover:text-accent underline underline-offset-2 decoration-border-custom transition-colors"
@@ -97,24 +98,13 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
             </dd>
           </div>
         )}
-        {profile.hireable !== null && (
-          <div className="flex items-center gap-2 font-mono text-xs tracking-[0.05em]">
-            <dt className="sr-only">Hireable</dt>
-            <dd>
-              <samp>
-                <span className={profile.hireable ? "text-terminal-green" : "text-muted"}>
-                  [{profile.hireable ? " AVAILABLE FOR HIRE " : " NOT AVAILABLE "}]
-                </span>
-              </samp>
-            </dd>
-          </div>
-        )}
         {blogUrl && (
-          <div className="flex items-center gap-2 font-mono text-xs tracking-[0.05em] text-muted">
-            <dt className="sr-only">Blog</dt>
+          <div className="font-mono text-xs tracking-[0.05em]">
+            <dt className="block text-[10px] tracking-[0.1em] text-muted uppercase mb-1">
+              <samp>[ BLOG ]</samp>
+            </dt>
             <dd>
               <samp>
-                <span className="text-accent">&gt;&gt;&gt;</span>{" "}
                 <a
                   href={blogUrl}
                   target="_blank"
@@ -123,6 +113,20 @@ export default function ProfileCard({ profile }: ProfileCardProps) {
                 >
                   {profile.blog}
                 </a>
+              </samp>
+            </dd>
+          </div>
+        )}
+        {profile.hireable !== null && (
+          <div className="font-mono text-xs tracking-[0.05em]">
+            <dt className="block text-[10px] tracking-[0.1em] text-muted uppercase mb-1">
+              <samp>[ STATUS ]</samp>
+            </dt>
+            <dd>
+              <samp>
+                <span className={profile.hireable ? "text-terminal-green" : "text-muted"}>
+                  {profile.hireable ? "AVAILABLE FOR HIRE" : "NOT AVAILABLE"}
+                </span>
               </samp>
             </dd>
           </div>
